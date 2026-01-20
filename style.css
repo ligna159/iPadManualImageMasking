@@ -1,0 +1,321 @@
+/* ==================== Basic Settings ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --danger-color: #f44336;
+    --warning-color: #ff9800;
+    --bg-dark: #1a1a1a;
+    --bg-medium: #2d2d2d;
+    --bg-light: #3d3d3d;
+    --text-light: #ffffff;
+    --text-dim: #b0b0b0;
+    --border-color: #4d4d4d;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    gap: 8px;
+    padding: 8px;
+}
+
+/* ==================== Header ==================== */
+.header {
+    grid-column: 1 / -1;
+    background: var(--bg-medium);
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.progress-info {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--text-dim);
+}
+
+#progressText {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ==================== Canvas Area ==================== */
+.canvas-container {
+    position: relative;
+    background: var(--bg-medium);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+#mainCanvas {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.placeholder {
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    pointer-events: none;
+}
+
+/* ==================== Control Panel ==================== */
+.control-panel {
+    background: var(--bg-medium);
+    padding: 16px;
+    border-radius: 12px;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.control-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.control-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.control-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.help-text {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* ==================== Sliders ==================== */
+.slider-group {
+    margin-bottom: 12px;
+}
+
+.slider-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--text-light);
+}
+
+.slider-group span {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-light);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* ==================== Buttons ==================== */
+.btn {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-load {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-mode {
+    background: var(--bg-light);
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.btn-mode.active {
+    background: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.btn-clear {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-skip {
+    background: var(--warning-color);
+    color: white;
+}
+
+.btn-save {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-nav {
+    background: var(--bg-light);
+    color: var(--text-light);
+    width: 48%;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.mode-buttons,
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* ==================== Mask Preview ==================== */
+#maskPreview {
+    width: 100%;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.pixel-count {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+.pixel-count span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ==================== Mobile/Tablet Optimization ==================== */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .control-panel {
+        max-height: 40vh;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .progress-info {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 12px;
+    }
+}
+
+/* iPad Pro Optimization */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .container {
+        grid-template-columns: 1fr 280px;
+    }
+
+    .control-panel {
+        padding: 12px;
+    }
+}
+
+/* ==================== Scrollbar Styling ==================== */
+.control-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.control-panel::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+    border-radius: 4px;
+}
+
+.control-panel::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.control-panel::-webkit-scrollbar-thumb:hover {
+    background: #5d5d5d;
+}

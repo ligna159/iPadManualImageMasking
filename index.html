@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Bubble Masking Tool - iPad Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- UTIF.js for TIFF image support -->
+    <script src="https://cdn.jsdelivr.net/npm/utif@4.0.0/UTIF.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🫧 Bubble Masking Tool</h1>
+            <div class="progress-info">
+                <span id="fileInfo">Please select images</span>
+                <span id="progressText">0 / 0</span>
+            </div>
+        </header>
+
+        <!-- Main Canvas Area -->
+        <main class="canvas-container">
+            <canvas id="mainCanvas"></canvas>
+            <div id="placeholderText" class="placeholder">
+                📁 Click the "Load Images" button below<br>
+                to select your image folder
+            </div>
+        </main>
+
+        <!-- Control Panel -->
+        <aside class="control-panel">
+            <!-- File Loading -->
+            <div class="control-section">
+                <label for="imageInput" class="btn btn-load">
+                    📁 Load Images
+                </label>
+                <input type="file" id="imageInput" multiple accept="image/*,.tif,.tiff" style="display: none;">
+                <p class="help-text">Supports PNG, JPG, TIFF</p>
+            </div>
+
+            <!-- Brush Settings -->
+            <div class="control-section">
+                <h3>🖌️ Brush Settings</h3>
+                <div class="slider-group">
+                    <label>Size: <span id="brushSizeValue">15</span>px</label>
+                    <input type="range" id="brushSize" min="5" max="100" value="15">
+                </div>
+                <div class="slider-group">
+                    <label>Opacity: <span id="opacityValue">70</span>%</label>
+                    <input type="range" id="opacity" min="10" max="100" value="70">
+                </div>
+            </div>
+
+            <!-- Draw/Erase Mode -->
+            <div class="control-section">
+                <h3>✍️ Mode</h3>
+                <div class="mode-buttons">
+                    <button id="drawMode" class="btn btn-mode active">✏️ Draw</button>
+                    <button id="eraseMode" class="btn btn-mode">🧹 Erase</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-section">
+                <h3>⚡ Actions</h3>
+                <button id="clearBtn" class="btn btn-clear">🗑️ Clear Mask</button>
+                <button id="skipBtn" class="btn btn-skip">⏭️ Skip (No Bubble)</button>
+                <button id="saveBtn" class="btn btn-save">💾 Save & Next</button>
+            </div>
+
+            <!-- Navigation -->
+            <div class="control-section">
+                <h3>🧭 Navigation</h3>
+                <div class="nav-buttons">
+                    <button id="prevBtn" class="btn btn-nav">◀ Previous</button>
+                    <button id="nextBtn" class="btn btn-nav">Next ▶</button>
+                </div>
+            </div>
+
+            <!-- Mask Preview -->
+            <div class="control-section">
+                <h3>👁️ Mask Preview</h3>
+                <canvas id="maskPreview"></canvas>
+                <p class="pixel-count">Masked: <span id="pixelCount">0</span> pixels</p>
+            </div>
+
+            <!-- Export -->
+            <div class="control-section">
+                <h3>📦 Export</h3>
+                <button id="downloadAllBtn" class="btn btn-download">⬇️ Download All Masks</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
