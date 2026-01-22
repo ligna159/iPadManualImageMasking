@@ -32,19 +32,19 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 260px;
     grid-template-rows: auto 1fr;
     height: 100vh;
-    gap: 8px;
-    padding: 8px;
+    gap: 6px;
+    padding: 6px;
 }
 
 /* ==================== Header ==================== */
 .header {
     grid-column: 1 / -1;
     background: var(--bg-medium);
-    padding: 12px 20px;
-    border-radius: 12px;
+    padding: 8px 14px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,15 +52,15 @@ body {
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     margin: 0;
 }
 
 .progress-info {
     display: flex;
-    gap: 20px;
-    font-size: 14px;
+    gap: 14px;
+    font-size: 12px;
     color: var(--text-dim);
 }
 
@@ -73,7 +73,7 @@ body {
 .canvas-container {
     position: relative;
     background: var(--bg-medium);
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -100,15 +100,15 @@ body {
 /* ==================== Control Panel ==================== */
 .control-panel {
     background: var(--bg-medium);
-    padding: 16px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 8px;
     overflow-y: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .control-section {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -118,30 +118,30 @@ body {
 }
 
 .control-section h3 {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .help-text {
-    font-size: 11px;
+    font-size: 9px;
     color: var(--text-dim);
-    margin-top: 6px;
+    margin-top: 4px;
     text-align: center;
 }
 
 /* ==================== Sliders ==================== */
 .slider-group {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .slider-group label {
     display: block;
-    font-size: 13px;
-    margin-bottom: 6px;
+    font-size: 11px;
+    margin-bottom: 4px;
     color: var(--text-light);
 }
 
@@ -182,14 +182,14 @@ input[type="range"]::-moz-range-thumb {
 /* ==================== Buttons ==================== */
 .btn {
     width: 100%;
-    padding: 12px 16px;
+    padding: 8px 12px;
     border: none;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
     text-align: center;
 }
@@ -258,7 +258,7 @@ input[type="range"]::-moz-range-thumb {
 
 .pixel-count {
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-dim);
     margin: 0;
 }
