@@ -168,6 +168,16 @@ function handleImageLoad(e) {
         return;
     }
 
+    // Sort files by name (natural sort for numbers)
+    files.sort((a, b) => {
+        return a.name.localeCompare(b.name, undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        });
+    });
+
+    console.log('📋 Files sorted:', files.map(f => f.name));
+
     images = [];
     masks = [];
     currentIndex = 0;
@@ -462,7 +472,32 @@ function skipImage() {
 }
 
 function saveAndNext() {
+    // Save current mask immediately
+    if (masks[currentIndex]) {
+        downloadSingleMask(currentIndex);
+        console.log(`💾 Auto-saved mask ${currentIndex + 1}`);
+    }
+    
+    // Move to next image
     navigate(1);
+}
+
+// Download a single mask
+function downloadSingleMask(index) {
+    const mask = masks[index];
+    if (!mask) {
+        console.warn('⚠️ No mask to save at index:', index);
+        return;
+    }
+
+    mask.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `mask_${String(index + 1).padStart(6, '0')}.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+    });
 }
 
 function navigate(direction) {
@@ -498,3 +533,4 @@ function downloadAllMasks() {
 
     alert(`Downloading ${masks.filter(m => m).length} masks!`);
 }
+
